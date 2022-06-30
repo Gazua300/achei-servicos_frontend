@@ -12,6 +12,11 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media(max-width: 750px){
+            display: flex;
+            flex-direction: column;
+        }
     }    
     form{
         margin: 20px;
@@ -46,7 +51,18 @@ export const Container = styled.div`
         option{
             color: black;
         }
-    }    
+    }
+
+    .last-form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    @media(max-width: 775px){
+        display: flex;
+        flex-direction: column;
+    }
 `
 export const Voltar = styled.button`
     height: 40px;
@@ -114,3 +130,12 @@ export const ConstultaId = styled.div`
         padding: 5px;
     }
 `
+// export const LastForm = styled.form`
+//     position: relative;
+//     left: 50%;
+//     transform: translateX(-17%)
+
+//     @media(max-width: 750px){
+//         display: none;
+//     }
+// `

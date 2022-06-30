@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import Context from "../../global/Context"
-import {QuadroCarro, Remove, QuadroFinal, BtnContainer} from './styled'
+import {QuadroCarro, Remove, QuadroFinal, BtnContainer, Container} from './styled'
 
 
 const Carrinho = ()=>{
@@ -17,12 +17,14 @@ const Carrinho = ()=>{
     })
 
     return(
-        <>
+        <Container>
             { carro && carro.map(item=>{
                 return(
                     <QuadroCarro>
-                        <b>{item.title}</b>
-                        R$ {item.price.toFixed(2)}
+                        <div>
+                            <b>{item.title}</b>
+                            R$ {item.price.toFixed(2)}
+                        </div>
                         <BtnContainer>
                             <Remove onClick={()=> requests.contratarServico(item.id)}>Contratar</Remove>
                             <Remove onClick={()=> setters.removerDoCarrinho(item.id)}>Remover</Remove>
@@ -35,7 +37,7 @@ const Carrinho = ()=>{
                 <Remove onClick={setters.limparCarrinho}>Limpar carrinho</Remove>
                 <Remove onClick={()=> navigate(-1)}>Voltar</Remove>
             </QuadroFinal>
-        </>
+        </Container>
     )
 }
 export default Carrinho

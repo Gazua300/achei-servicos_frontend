@@ -12,7 +12,8 @@ import {
     Contratar,
     Paragrafo,
     ConsultaEmail,
-    ConstultaId
+    ConstultaId,
+    LastForm
  } from './styled'
 
 
@@ -137,8 +138,7 @@ const Detalhe = ()=>{
                         </fieldset>
                     </form>
                 </div>
-                <form style={{position:'relative', left:'50%', transform:'translateX(-17%)'}}
-                    onSubmit={servicoPorId}>
+                <form className='last-form' onSubmit={servicoPorId}>
                     <fieldset>
                         <legend>Consultar serviço por identificador</legend>
                         <input type='text' value={id} onChange={handleId}

@@ -21,7 +21,13 @@ const Head = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  margin-bottom: -15px;        
+  margin-bottom: -15px;
+  
+  @media(max-width: 377px){
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
 `
 const BtnHead = styled.button`
   margin: 5px;
