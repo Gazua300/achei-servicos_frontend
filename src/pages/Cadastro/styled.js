@@ -1,5 +1,21 @@
 import styled from 'styled-components'
 
+
+export const Head = styled.div`
+  background-image: linear-gradient(#151626, lightblue);  
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  button {
+    background-color: #151626;
+    border-radius: 15px;
+    color: whitesmoke;
+    cursor: pointer;
+    padding: 10px;
+  }
+`
 export const Container = styled.div`
     text-align: center;
     

@@ -1,5 +1,22 @@
 import styled from 'styled-components'
 
+
+export const Head = styled.div`
+  background-image: linear-gradient(#151626, lightblue);  
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  button {
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #151626;
+    color: whitesmoke;
+    padding: 10px;
+  }
+`
+
 export const Container = styled.div`
     text-align: center;
     padding-top: 10vh;
@@ -10,16 +27,15 @@ export const Container = styled.div`
         color: whitesmoke;
         padding: 7px;
         border-radius: 20px;
-        margin-top: 5vh;
+        margin-top: 10px;
         cursor: pointer;
     }
 `
 export const InputContainer = styled.div`
-    box-shadow: 2px 2px 4px whitesmoke;
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    width: 84vw;
-    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
 
     h2{
         text-align: center;
@@ -64,8 +80,9 @@ export const CartaoContainer = styled.div`
     margin-top: 30px;
 `
 export const Cartao = styled.div`
-    width: 25%;
+    background-image: linear-gradient(#151626, lightblue);
     display: inline-block;
+    width: 25%;
     color: whitesmoke;
     border: 1px solid whitesmoke;
     box-shadow: 2px 2px 4px whitesmoke; 

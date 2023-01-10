@@ -12,17 +12,22 @@ export const GlobalState = (props)=>{
     
 
     useEffect(()=>{
+        getAllJobs()
+    }, [])
+
+
+    const getAllJobs = ()=>{
         axios.get(`${BASE_URL}/jobs`).then(res=>{
             setServicos(res.data)
         }).catch(e=>{
             alert(e.response.data)
         })
-    }, [])
+    }
 
 
     const states = { servicos, job }
     const setters = { setJob }
-    const requests = { }
+    const requests = { getAllJobs }
 
     return(
         <Context.Provider value={{ states, setters, requests }}>

@@ -1,11 +1,27 @@
 import styled from 'styled-components'
 
 
+export const Head = styled.div`
+  background-image: linear-gradient(#151626, lightblue);  
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  button {
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #151626;
+    color: whitesmoke;
+    padding: 10px;
+  }
+`
 export const Container = styled.div`
     text-align: center;
     padding-top: 5vh;
 `
 export const Cartao = styled.div`
+    background-image: linear-gradient(#151626, lightblue);
     width: 25%;
     display: inline-block;
     color: whitesmoke;

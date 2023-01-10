@@ -10,6 +10,7 @@ import {
     Nome,
     Container,
     CartaoContainer,
+    Head
  } from "./styled"
 
 
@@ -41,6 +42,16 @@ const Lista = ()=>{
         
 
     return(
+        <>
+        <Head>
+            <button onClick={()=> navigate(-1)}>
+                <b>Voltar</b>
+            </button>
+            Lista de Serviços
+            <button onClick={()=> navigate('/cadastro')}>
+                <b>Cadastro</b>
+            </button>
+        </Head>
         <Container>
             <InputContainer>
                 <h2>Filtro de busca</h2>
@@ -49,9 +60,6 @@ const Lista = ()=>{
                         placeholder='Titulo do serviço'/>                    
                 </div>                
             </InputContainer>
-            <button onClick={()=> navigate('/cadastro')}>
-                Cadastrar serviço
-            </button>
             <CartaoContainer>
             {filtro && filtro.map(servico=>{
                 return(
@@ -69,7 +77,8 @@ const Lista = ()=>{
                 )
             })}
             </CartaoContainer>  
-        </Container>        
+        </Container>  
+        </>      
     )
 }
 export default Lista
