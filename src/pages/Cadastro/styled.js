@@ -1,13 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    text-align: center;    
+    text-align: center;
+    
+    h2 {
+        margin-top: 10vh;
+    }
     
     form{
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 10vh;
     }
+
     input{
     	width: 250px;
     	height: 20px;
@@ -18,6 +24,11 @@ export const Container = styled.div`
         padding-left: 10px;
         margin-bottom: 10px;
     }
+
+    input::placeholder {
+        color: whitesmoke;
+    }
+
     textarea{
         width: 253px;
         border-radius: 10px;
@@ -27,16 +38,9 @@ export const Container = styled.div`
         margin-bottom: 10px;
         padding-left: 10px;
     }
-    select{
-        width: 265px;
-        border-radius: 10px;
-        background: transparent;
-        font-size: 1rem;
+
+    textarea::placeholder {
         color: whitesmoke;
-        padding-left: 10px;
-        option{
-            color: black;
-        }
     }
 `
 export const BtnCadastrar = styled.button`

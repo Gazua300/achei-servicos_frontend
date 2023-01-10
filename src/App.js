@@ -1,33 +1,23 @@
-import { BrowserRouter, Link } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import { createGlobalStyle } from "styled-components"
 import { GlobalState } from "./global/Context"
 import Router from "./routes/Router"
-import Background from './img/ninjaWallpaper.jpg'
 import styled from 'styled-components'
 
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background-image: url(${Background});
-    background-size: cover;
+    /* background-image: linear-gradient(to left, #151626, lightblue); */
+    background-color: #151626;
     margin: 0;
     padding: 0;
     width: 100vw;
-    color: #918bcb;
+    color: whitesmoke;
   }
 `
-const Head = styled.div`    
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const Head = styled.div`  
+  text-align: center;
   padding: 5px;
-  margin-bottom: -15px;
-  
-  @media(max-width: 377px){
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
 `
 const BtnHead = styled.button`
   margin: 5px;
@@ -48,14 +38,6 @@ const App = ()=> {
       <BrowserRouter>
         <GlobalState>
           <GlobalStyle/>
-              <Head>
-                <h1>LabeNinjas</h1>
-                <div>
-                  <Link to={'/'}><BtnHead>Home</BtnHead></Link>
-                  <Link to={'/carrinho'}><BtnHead>Carrinho</BtnHead></Link>
-                </div>
-              </Head>
-              <hr/>
             <Router/>
         </GlobalState>
       </BrowserRouter>

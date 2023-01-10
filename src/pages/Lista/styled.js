@@ -2,17 +2,29 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     text-align: center;
-    margin-top: 20px;
+    padding-top: 10vh;
+    margin: 0;
+
+    button {
+        background-color: #151626;
+        color: whitesmoke;
+        padding: 7px;
+        border-radius: 20px;
+        margin-top: 5vh;
+        cursor: pointer;
+    }
 `
 export const InputContainer = styled.div`
-    box-shadow: 2px 2px 4px #918bcb;
-    border: 1px solid;
+    box-shadow: 2px 2px 4px whitesmoke;
+    border: 1px solid whitesmoke;
     border-radius: 10px;
     width: 84vw;
     margin: auto;
+
     h2{
         text-align: center;
     }
+
     input{
         width: 170px;
         height: 20px;
@@ -23,6 +35,11 @@ export const InputContainer = styled.div`
         margin: 10px;
         padding-left: 10px;
     }
+
+    input::placeholder{
+        color: whitesmoke;
+    }
+
     select{
         margin-left: 10px;
         height: 25px;
@@ -35,17 +52,23 @@ export const InputContainer = styled.div`
             color: black;
         }
     }
+
+    .subtitle-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 10px;
+    }    
 `
 export const CartaoContainer = styled.div`
     margin-top: 30px;
 `
 export const Cartao = styled.div`
-    text-align: left;
-    color: black;
-    border: 1px solid;
-    box-shadow: 2px 2px 4px #918bcb;    
-    width: 230px;
+    width: 25%;
     display: inline-block;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    box-shadow: 2px 2px 4px whitesmoke; 
     margin: 20px;
     padding: 15px;
     border-radius: 10px;
@@ -53,35 +76,22 @@ export const Cartao = styled.div`
     transform: scale(1.1);
     transition: 1s;
     }
+
+    .card-content {
+        text-align: left;
+        margin-bottom: 20px;
+    }
 `
 export const Nome = styled.div`
     text-align: center;
-    font-size: 14pt;
+    font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 20px;
 `
 export const BtnCartao = styled.button`
     border-radius: 20px;
+    padding: 7px;
     background-color: #151626;
     color: whitesmoke;
     cursor: pointer;
-`
-export const Carregando = styled.div`
-    margin: auto;
-    border: 2px solid #918bcb;
-    border-top: none;
-    width: 100px;
-    height: 100px;
-    box-shadow: 1px 1px 2px #918bcb;
-    border-radius: 50%;
-    animation: loading 0.8s infinite;
-
-    @keyframes loading {
-        from{
-            transform: rotate(0deg);
-        }
-        to{
-            transform: rotate(360deg);
-        }
-        
-    }
 `

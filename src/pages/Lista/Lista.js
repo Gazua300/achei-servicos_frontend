@@ -1,7 +1,8 @@
-import { useContext } from "react"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Context from "../../global/Context"
-import { convertDate } from '../../utilidades/util'
+import axios from 'axios'
+import { BASE_URL } from "../../constants/urls"
 import { 
     InputContainer,
     Cartao,
@@ -9,51 +10,33 @@ import {
     Nome,
     Container,
     CartaoContainer,
-    Carregando
  } from "./styled"
 
 
 const Lista = ()=>{
-    const { states, setters, requests } = useContext(Context)
+    const navigate = useNavigate()
+    const { states, setters } = useContext(Context)
     const servicos = states.servicos
-    const [minVal, setMinVal] = useState('')
-    const [maxVal, setMaxVal] = useState('')
-    const [titulo, setTitulo] = useState('')
-    const [ordem, setOrdem] = useState('')
+    const [title, setTtile] = useState('')
+    
 
-//Pegar valores dos inputs
-    const pegarMinVal = (e)=>{
-        setMinVal(e.target.value)
-    }
-    const pegarMaxVal = (e)=>{
-        setMaxVal(e.target.value)
-    }
-    const pegarTitulo = (e)=>{
-        setTitulo(e.target.value)
-    }
-    const pegarOrdem = (e)=>{
-        setOrdem(e.target.value)
+    const handleTitle = (e)=>{
+        setTtile(e.target.value)
     }
 
-//Filtrar servicos
+
+    const getJobById = (job)=>{
+        axios.get(`${BASE_URL}/job/${job.id}`).then(res=>{
+          setters.setJob(res.data)
+          navigate('/detalhe')
+        }).catch(e=>{
+          alert(e.response.data)
+        })
+      }
+    
+
     const filtro = servicos && servicos.filter(item=>{
-        return minVal < item.price
-    }).filter(item=>{
-        return maxVal === '' || maxVal >= item.price
-    }).filter(item=>{
-        return titulo === '' || titulo.toLowerCase().includes(item.title.toLowerCase())
-    }).sort((servicoAtual, proximo)=>{
-        switch(ordem){
-            case 'Título':
-                return servicoAtual.title.localeCompare(proximo.title)
-            case 'Preço':
-                return servicoAtual.price - proximo.price
-            case 'Prazo':
-                return new Date(servicoAtual.dueDate).getTime() - 
-                       new Date(proximo.dueDate).getTime() 
-            default:
-                return false
-        }
+        return item.title.toLowerCase().includes(title.toLocaleLowerCase())
     })
         
 
@@ -61,31 +44,30 @@ const Lista = ()=>{
         <Container>
             <InputContainer>
                 <h2>Filtro de busca</h2>
-                <input type='number' min='1' value={minVal} onChange={pegarMinVal}
-                    placeholder='Valor mínimo'/>
-                <input type='number' min='1' value={maxVal} onChange={pegarMaxVal}
-                    placeholder='Valor máximo'/>
-                <input type='text' value={titulo} onChange={pegarTitulo}
-                    placeholder='Título' />
-                <select value={ordem} onChange={pegarOrdem}>
-                    <option defaultChecked>Sem ordenação</option>
-                    <option>Título</option>
-                    <option>Preço</option>
-                    <option>Prazo</option>
-                </select>
+                <div className="subtitle-container">
+                    <input type='text' onChange={handleTitle} value={title} 
+                        placeholder='Titulo do serviço'/>                    
+                </div>                
             </InputContainer>
+            <button onClick={()=> navigate('/cadastro')}>
+                Cadastrar serviço
+            </button>
             <CartaoContainer>
-            {filtro.length > 0 ? filtro.map(servico=>{
+            {filtro && filtro.map(servico=>{
                 return(
                     <Cartao key={servico.id}>
                         <Nome>{servico.title}</Nome>
-                        <p><b>Preço: </b>R$ {servico.price}</p>
-                        <b>Prazo: </b>{convertDate(servico.dueDate)}
-                        <p><BtnCartao onClick={()=> requests.contratarServico(servico.id)}>Contratar</BtnCartao>&nbsp;&nbsp;
-                        <BtnCartao onClick={()=> setters.adicionarAoCarrinho(servico)}>Adicionar ao carrinho</BtnCartao></p>
+                        <div className="card-content">
+                            {servico.description}<br/><br/>
+                            {servico.phone}<br/><br/>
+                            {servico.period}
+                        </div>
+                        <BtnCartao onClick={()=> getJobById(servico)}>
+                            Adicionar aos contatos
+                        </BtnCartao>
                     </Cartao>
                 )
-            }) : <Carregando></Carregando>}
+            })}
             </CartaoContainer>  
         </Container>        
     )

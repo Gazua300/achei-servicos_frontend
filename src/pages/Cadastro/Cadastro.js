@@ -11,9 +11,7 @@ const Cadastro = ()=>{
     const [form, setForm] = useState({
         titulo:'',
         descricao:'',
-        preco:'',
-        pagamento:'',
-        prazo:''
+        phone:''
     })
 
 
@@ -30,9 +28,7 @@ const Cadastro = ()=>{
         const body = {
             title: form.titulo,
             description: form.descricao,
-            price: form.preco,
-            payment: form.pagamento,
-            dueDate: form.prazo
+            phone: form.phone
         }
         if(form.pagamento === 'Pagamento'){
             alert('Selecione uma forma de pagamento.')
@@ -44,9 +40,7 @@ const Cadastro = ()=>{
                 setForm({
                     titulo:'',
                     descricao:'',
-                    preco:'',
-                    pagamento:'',
-                    prazo:''
+                    phone:''
                 })
             }).catch(e=>{
                 alert(e.response.data)
@@ -61,24 +55,14 @@ const Cadastro = ()=>{
                 <input type='text' name='titulo' value={form.titulo} onChange={onChange}
                     placeholder='Nome do serviço' required/>
                 <textarea name='descricao' value={form.descricao} onChange={onChange}
-                    placeholder='Descricao' />
-                <input type='number' name='preco' value={form.preco} onChange={onChange}
-                    step='0.01' placeholder='R$ 0,00' required/>
-                <input type='date' name='prazo' value={form.prazo} onChange={onChange}
-                    required/>
-                <select name='pagamento' value={form.pagamento} onChange={onChange}
-                    required>
-                    <option defaultChecked>Pagamento</option>
-                    <option>Débito</option>
-                    <option>Crédito</option>
-                    <option>Pix</option>
-                    <option>Boleto</option>
-                </select>
+                    placeholder='Descricao' required/>
+                <input type='tel' name='phone' value={form.phone} onChange={onChange}
+                    placeholder='DDD e telefone' required/>
                 <BtnContainer>
                     <BtnCadastrar>Cadastrar</BtnCadastrar>
                 </BtnContainer>
             </form>
-                <BtnCadastrar onClick={()=> navigate('/lista')}>Ir para lista</BtnCadastrar>
+                <BtnCadastrar onClick={()=> navigate('/')}>Ir para lista</BtnCadastrar>
         </Container>
     )
 }
