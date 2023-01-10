@@ -1,2 +1,2 @@
-export const BASE_URL = "http://10.0.0.113:3003"
+export const BASE_URL = 'https://labeninja-production.up.railway.app'
 
