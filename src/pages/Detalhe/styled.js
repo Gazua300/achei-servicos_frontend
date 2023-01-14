@@ -6,7 +6,8 @@ export const Head = styled.div`
   font-size: 2rem;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  padding: 10px;
 
   button {
     border-radius: 15px;
@@ -14,6 +15,13 @@ export const Head = styled.div`
     background-color: #151626;
     color: whitesmoke;
     padding: 10px;
+  }
+
+  @media(max-width: 600px){
+    font-size: 20px;
+    button {
+      padding: 7px;
+    }
   }
 `
 export const Container = styled.div`
@@ -47,6 +55,10 @@ export const Cartao = styled.div`
         padding: 7px;
         border-radius: 20px;
         box-shadow: 2px 2px 4px black;
+    }
+
+    @media(max-width: 600px){
+        width: 70%;
     }
 `
 export const Nome = styled.div`

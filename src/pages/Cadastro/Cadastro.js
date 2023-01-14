@@ -73,9 +73,9 @@ const Cadastro = ()=>{
                     placeholder='Período de atendimento' required/>
                 <BtnContainer>
                     <BtnCadastrar>Cadastrar</BtnCadastrar>
+                    <BtnCadastrar onClick={()=> navigate('/')}>Ir para lista</BtnCadastrar>
                 </BtnContainer>
             </form>
-                <BtnCadastrar onClick={()=> navigate('/')}>Ir para lista</BtnCadastrar>
         </Container>
         </>
     )

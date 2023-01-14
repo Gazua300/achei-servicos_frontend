@@ -6,6 +6,7 @@ export const Head = styled.div`
   font-size: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
 
   button {
@@ -14,6 +15,14 @@ export const Head = styled.div`
     background-color: #151626;
     color: whitesmoke;
     padding: 10px;
+  }
+
+  @media(max-width: 600px){
+    font-size: 20px;
+    padding: 10px;
+    button {
+        padding: 7px;
+    }
   }
 `
 
@@ -36,6 +45,10 @@ export const InputContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin: 10px;
+    @media(max-width: 600px){
+        margin-top: -30px;
+        font-size: 10px;
+    }
 
     h2{
         text-align: center;
@@ -74,15 +87,22 @@ export const InputContainer = styled.div`
         justify-content: space-around;
         align-items: center;
         margin: 10px;
-    }    
+    }
 `
 export const CartaoContainer = styled.div`
-    margin-top: 30px;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @media(max-width: 800px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media(max-width: 600px){
+        display: flex;
+        flex-direction: column;
+    }
 `
 export const Cartao = styled.div`
     background-image: linear-gradient(#151626, lightblue);
-    display: inline-block;
-    width: 25%;
     color: whitesmoke;
     border: 1px solid whitesmoke;
     box-shadow: 2px 2px 4px whitesmoke; 

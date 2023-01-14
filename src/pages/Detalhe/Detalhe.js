@@ -25,7 +25,7 @@ const Detalhe = ()=>{
                 Voltar
             </button>
             {servico.title}
-            <div/>
+            <div style={{width:'10%'}}/>
         </Head>
         <Container>
             <Cartao>

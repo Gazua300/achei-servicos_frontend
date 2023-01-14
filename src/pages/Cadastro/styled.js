@@ -6,6 +6,7 @@ export const Head = styled.div`
   font-size: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
 
   button {
@@ -14,6 +15,14 @@ export const Head = styled.div`
     color: whitesmoke;
     cursor: pointer;
     padding: 10px;
+  }
+
+  @media(max-width: 600px){
+    font-size: 20px;
+    padding: 10px;
+    button {
+        padding: 7px;
+    }
   }
 `
 export const Container = styled.div`
@@ -58,6 +67,21 @@ export const Container = styled.div`
     textarea::placeholder {
         color: whitesmoke;
     }
+
+    @media(max-width: 600px){
+        font-size: 10px;
+        h2 {
+            margin-top: 5vh;
+        }
+        input {
+            width: 80%;
+            height: 30px;
+        }
+        textarea {
+            width: 80%;
+            height: 60px;
+        }
+    }
 `
 export const BtnCadastrar = styled.button`
     margin: 5px;
@@ -67,10 +91,19 @@ export const BtnCadastrar = styled.button`
     background-color: #151626;
     color: whitesmoke;
     cursor: pointer;
+    @media(max-width: 600px){
+        width: 30%;
+    }
 `
 export const BtnContainer = styled.div`
 	display: flex;
+    flex-direction: column;
 	align-items: center;
 	justify-content: center;
     margin-top: 10px;
+    @media(max-width: 600px){
+        width: 80%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 `
