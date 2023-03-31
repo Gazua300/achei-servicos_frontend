@@ -35,15 +35,15 @@ const Detalhe = ()=>{
 
 
     useEffect(()=>{
-        axios.get(`${BASE_URL}/image/${servico.id}`, {
-            headers: {
-                Authorization: localStorage.getItem('id')
-            }
-        }).then(res=>{
-            setImages(res.data)
-        }).catch(e=>{
-            console.log(e.response.data)
-        })
+        // axios.get(`${BASE_URL}/image/${servico.id}`, {
+        //     headers: {
+        //         Authorization: localStorage.getItem('id')
+        //     }
+        // }).then(res=>{
+        //     setImages(res.data)
+        // }).catch(e=>{
+        //     console.log(e.response.data)
+        // })
 
         requests.getProfile()
 
@@ -53,31 +53,31 @@ const Detalhe = ()=>{
 
 
 
-    const getAndSendImage = (e)=>{
-        const imageFile = e.target.files[0]
-        const reader = new FileReader()
+    // const getAndSendImage = (e)=>{
+    //     const imageFile = e.target.files[0]
+    //     const reader = new FileReader()
 
-        reader.onload = ()=>{
-            setImage(reader.result)
-        }
+    //     reader.onload = ()=>{
+    //         setImage(reader.result)
+    //     }
 
-        reader.readAsDataURL(imageFile)
+    //     reader.readAsDataURL(imageFile)
 
-        const formData = new FormData()
-        formData.append('image', imageFile)
-        formData.append('imageName', imageFile.name)
+    //     const formData = new FormData()
+    //     formData.append('image', imageFile)
+    //     formData.append('imageName', imageFile.name)
 
-        axios.post(`${BASE_URL}/image/${servico.id}`, formData, {
-            headers: {
-                Authorization: localStorage.getItem('id'),
-                'Content-Type': 'multipart/form-data'                
-            }
-        }).then(res=>{
-            alert(res.data)
-        }).catch(e=>{
-            alert(e.response.data)
-        })
-    }
+    //     axios.post(`${BASE_URL}/image/${servico.id}`, formData, {
+    //         headers: {
+    //             Authorization: localStorage.getItem('id'),
+    //             'Content-Type': 'multipart/form-data'                
+    //         }
+    //     }).then(res=>{
+    //         alert(res.data)
+    //     }).catch(e=>{
+    //         alert(e.response.data)
+    //     })
+    // }
 
 
 
@@ -103,7 +103,7 @@ const Detalhe = ()=>{
                     Mensagem
                 </a>
             </Cartao><br/>
-            {match ? (
+            {/* {match ? (
                 <>
                 <label htmlFor='fileInput' className='select-image'>
                     Adicionar imagem
@@ -113,8 +113,9 @@ const Detalhe = ()=>{
                     type='file'
                     onChange={getAndSendImage}/>
                 </>
-            ) : null }
-            <CartaoContainer>
+            ) : null } */}
+
+            {/* <CartaoContainer>
                 {images.length > 0 ? (
                     images.map(image=>{
                         return(
@@ -122,7 +123,7 @@ const Detalhe = ()=>{
                             )
                         })
                     ) : null}
-            </CartaoContainer>
+            </CartaoContainer> */}
         </Container>
         </>
     )
