@@ -79,9 +79,6 @@ const Login = ()=>{
                     </BtnContainer>
                 </fieldset>
             </form>
-            <div style={{marginTop:'7%'}}>
-                Não tem cadastro? Clique <a href='./signup'>aqui</a>
-            </div>
         </Container>
         </>
     )
