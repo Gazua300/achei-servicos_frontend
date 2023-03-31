@@ -113,8 +113,9 @@ const Detalhe = ()=>{
                     type='file'
                     onChange={getAndSendImage}/>
                 </>
-            ) : null }
-            <CartaoContainer>
+            ) : null } */}
+
+            {/* <CartaoContainer>
                 {images.length > 0 ? (
                     images.map(image=>{
                         return(
