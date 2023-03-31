@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Context from '../../global/Context'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
+import { BsCardList, BsFillPersonFill } from 'react-icons/bs'
 import { Container, BtnContainer, BtnCadastrar, Head } from './styled'
 
 
@@ -16,6 +17,13 @@ const Cadastro = ()=>{
         phone:'',
         period:''
     })
+
+
+    useEffect(()=>{
+        if(!localStorage.getItem('id')){
+            navigate('/')
+        }
+    }, [])
 
 
     const onChange = (e)=>{
@@ -34,7 +42,14 @@ const Cadastro = ()=>{
             phone: form.phone,
             period: form.period
         }
-        axios.post(`${BASE_URL}/jobs`, body).then(()=>{
+        axios({
+            method:'POST',
+            url:`${BASE_URL}/jobs`,
+            headers: {
+                Authorization: localStorage.getItem('id')
+            },
+            data: body
+        }).then(()=>{
             requests.getAllJobs()
             navigate('/')
             setForm({
@@ -48,17 +63,15 @@ const Cadastro = ()=>{
     }
   
     
-    console.log(form)
+    
     return(
         <>
         <Head>
-            <button onClick={()=> navigate(-1)}>
-                <b>Voltar</b>
-            </button>
+            <BsCardList onClick={()=> navigate('/lista')}
+                style={{cursor:'pointer'}}/>
             Cadastrar Serviço
-            <button onClick={()=> navigate('/')}>
-                <b>Lista</b>
-            </button>
+            <BsFillPersonFill onClick={()=> navigate('/perfil')}
+                style={{cursor:'pointer'}}/>
         </Head>
         <Container>
             <h2>Preencha o formulário com os dados do serviço</h2>

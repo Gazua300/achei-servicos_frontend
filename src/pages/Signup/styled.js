@@ -5,17 +5,11 @@ export const Head = styled.div`
   background-image: linear-gradient(#151626, lightblue);  
   font-size: 2rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  text-align: center;
   padding: 10px;
-
-  button {
-    background-color: #151626;
-    border-radius: 15px;
-    color: whitesmoke;
-    cursor: pointer;
-    padding: 10px;
-  }
+  
 
   @media(max-width: 600px){
     font-size: 20px;
@@ -28,10 +22,6 @@ export const Head = styled.div`
 export const Container = styled.div`
     text-align: center;
     
-    h2 {
-        margin-top: 10vh;
-    }
-    
     form{
         display: flex;
         flex-direction: column;
@@ -39,25 +29,25 @@ export const Container = styled.div`
         margin-top: 10vh;
     }
 
+    fieldset{
+        padding: 10px;
+        width: 50vw;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px;
+    }
+
     input{
-    	width: 250px;
-    	height: 20px;
+    	height: 25px;
     	background: transparent;
     	color: whitesmoke;
     	font-size: 1rem;
-    	border-radius: 10px;
+    	border-radius: 20px;
         padding-left: 10px;
-        margin-bottom: 10px;
+        margin: 10px;
     }
 
-    textarea{
-        width: 253px;
-        border-radius: 10px;
-        background: transparent;
-        font-size: 1rem;
-        color: whitesmoke;
-        margin-bottom: 10px;
-        padding-left: 10px;
+    input::placeholder {
+        color: rgb(255, 255, 255, 0.3);
     }
 
     @media(max-width: 600px){
@@ -69,33 +59,29 @@ export const Container = styled.div`
             width: 80%;
             height: 30px;
         }
-        textarea {
-            width: 80%;
-            height: 60px;
-        }
     }
 `
-export const BtnCadastrar = styled.button`
-    margin: 8px;
+export const BtnContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    @media(max-width: 600px){
+        width: 80%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+`
+export const BtnCadastrar = styled.input`
+    margin: 5px;
     height: 30px;
-    width: 265px;
+    width: 100px;
     border-radius: 30px;
     background-color: #151626;
     color: whitesmoke;
     cursor: pointer;
     @media(max-width: 600px){
         width: 30%;
-    }
-`
-export const BtnContainer = styled.div`
-	display: flex;
-    flex-direction: column;
-	align-items: center;
-	justify-content: center;
-    margin-top: 10px;
-    @media(max-width: 600px){
-        width: 80%;
-        flex-direction: row;
-        justify-content: space-between;
     }
 `

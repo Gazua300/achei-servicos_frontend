@@ -1,8 +1,9 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Context from "../../global/Context"
 import axios from 'axios'
 import { BASE_URL } from "../../constants/urls"
+import { BsSearch } from 'react-icons/bs'
 import { 
     InputContainer,
     Cartao,
@@ -10,15 +11,24 @@ import {
     Nome,
     Container,
     CartaoContainer,
-    Head
  } from "./styled"
 
 
 const Lista = ()=>{
     const navigate = useNavigate()
-    const { states, setters } = useContext(Context)
+    const { states, setters, requests } = useContext(Context)
     const servicos = states.servicos
     const [title, setTtile] = useState('')
+
+
+
+    useEffect(()=>{
+        if(!localStorage.getItem('id')){
+            navigate('/')
+        }
+
+        requests.getAllJobs()
+    }, [])
     
 
     const handleTitle = (e)=>{
@@ -27,7 +37,11 @@ const Lista = ()=>{
 
 
     const getJobById = (job)=>{
-        axios.get(`${BASE_URL}/job/${job.id}`).then(res=>{
+        axios.get(`${BASE_URL}/job/${job.id}`, {
+            headers: {
+                Authorization: localStorage.getItem('id')
+            }
+        }).then(res=>{
           setters.setJob(res.data)
           navigate('/detalhe')
         }).catch(e=>{
@@ -43,27 +57,19 @@ const Lista = ()=>{
 
     return(
         <>
-        <Head>
-            <button onClick={()=> navigate(-1)}>
-                <b>Voltar</b>
-            </button>
-            Lista de Serviços
-            <button onClick={()=> navigate('/cadastro')}>
-                <b>Cadastro</b>
-            </button>
-        </Head>
         <Container>
             <InputContainer>
-                <h2>Filtro de busca</h2>
-                <div className="subtitle-container">
+                <div style={{position:'relative'}}>
                     <input type='text' onChange={handleTitle} value={title} 
-                        placeholder='Titulo do serviço'/>                    
+                        placeholder='Titulo do serviço'/>
+                    <BsSearch className="search-icon"/>                    
                 </div>                
             </InputContainer>
             <CartaoContainer>
             {filtro && filtro.map(servico=>{
                 return(
-                    <Cartao key={servico.id}>
+                    <Cartao key={servico.id}
+                        onClick={()=> getJobById(servico)}>
                         <Nome>{servico.title}</Nome>
                         <div className="card-content">
                             {servico.description}<br/><br/>
@@ -71,7 +77,7 @@ const Lista = ()=>{
                             {servico.period}
                         </div>
                         <BtnCartao onClick={()=> getJobById(servico)}>
-                            Adicionar aos contatos
+                            Entrar em contato
                         </BtnCartao>
                     </Cartao>
                 )

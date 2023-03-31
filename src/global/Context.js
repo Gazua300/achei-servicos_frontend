@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../constants/urls"
 
@@ -8,16 +8,18 @@ const Context = createContext()
 export const GlobalState = (props)=>{
     const [servicos, setServicos] = useState([])
     const [job, setJob] = useState({})
+    const [user, setUser] = useState({})
 
+
+   
     
 
-    useEffect(()=>{
-        getAllJobs()
-    }, [])
-
-
     const getAllJobs = ()=>{
-        axios.get(`${BASE_URL}/jobs`).then(res=>{
+        axios.get(`${BASE_URL}/jobs`, {
+            headers: {
+                Authorization: localStorage.getItem('id')
+            }
+        }).then(res=>{
             setServicos(res.data)
         }).catch(e=>{
             alert(e.response.data)
@@ -25,9 +27,24 @@ export const GlobalState = (props)=>{
     }
 
 
-    const states = { servicos, job }
+    const getProfile = ()=>{
+        axios.get(`${BASE_URL}/user`, {
+            headers: {
+                Authorization: localStorage.getItem('id')
+            }
+        }).then(res=>{
+            setUser(res.data)
+        }).catch(e=>{
+            alert(e.response.data)
+        })
+    }
+
+
+    const states = { servicos, job, user }
     const setters = { setJob }
-    const requests = { getAllJobs }
+    const requests = { getAllJobs, getProfile }
+
+
 
     return(
         <Context.Provider value={{ states, setters, requests }}>

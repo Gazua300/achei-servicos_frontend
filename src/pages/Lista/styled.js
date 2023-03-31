@@ -7,15 +7,7 @@ export const Head = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-
-  button {
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: #151626;
-    color: whitesmoke;
-    padding: 10px;
-  }
+  padding: 5px;
 
   @media(max-width: 600px){
     font-size: 20px;
@@ -28,7 +20,7 @@ export const Head = styled.div`
 
 export const Container = styled.div`
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 3vh;
     margin: 0;
 
     button {
@@ -55,18 +47,21 @@ export const InputContainer = styled.div`
     }
 
     input{
-        width: 170px;
-        height: 20px;
+        width: 250px;
+        height: 30px;
         background: transparent;
         color: whitesmoke;
         font-size: 1rem;
-        border-radius: 10px;
+        border-radius: 20px;
         margin: 10px;
-        padding-left: 10px;
+        padding-left: 40px;
     }
 
-    input::placeholder{
-        color: whitesmoke;
+    .search-icon{
+        position: absolute;
+        left: 7.5%;
+        top: 20.5px;
+        color: rgba(255, 255, 255, 0.5)
     }
 
     select{
@@ -81,18 +76,12 @@ export const InputContainer = styled.div`
             color: black;
         }
     }
-
-    .subtitle-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 10px;
-    }
 `
 export const CartaoContainer = styled.div`
     margin: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     @media(max-width: 800px){
         grid-template-columns: repeat(2, 1fr);
     }
@@ -109,6 +98,7 @@ export const Cartao = styled.div`
     margin: 20px;
     padding: 15px;
     border-radius: 10px;
+    cursor: pointer;
     &:hover{
     transform: scale(1.1);
     transition: 1s;
