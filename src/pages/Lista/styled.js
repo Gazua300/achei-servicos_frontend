@@ -1,24 +1,10 @@
 import styled from 'styled-components'
 
 
-export const Head = styled.div`
-  background-image: linear-gradient(#151626, lightblue);  
-  font-size: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-
-  @media(max-width: 600px){
-    font-size: 20px;
-    padding: 10px;
-    button {
-        padding: 7px;
-    }
-  }
-`
 
 export const Container = styled.div`
+    background-color: rgba(0, 0, 0, 0.8);
+    min-height: 100vh;
     text-align: center;
     padding-top: 3vh;
     margin: 0;
@@ -91,7 +77,6 @@ export const CartaoContainer = styled.div`
     }
 `
 export const Cartao = styled.div`
-    background-image: linear-gradient(#151626, lightblue);
     color: whitesmoke;
     border: 1px solid whitesmoke;
     box-shadow: 2px 2px 4px whitesmoke; 

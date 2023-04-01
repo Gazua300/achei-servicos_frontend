@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import Context from '../../global/Context'
-import axios from 'axios'
-import { BASE_URL } from "../../constants/urls"
+// import axios from 'axios'
+// import { BASE_URL } from "../../constants/urls"
+import DefaultHeader from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 import { IoAddCircleOutline } from 'react-icons/io5'
 import { IoIosArrowBack } from 'react-icons/io'
@@ -9,8 +10,7 @@ import {
     Container,
     Cartao,
     Nome,
-    Head,
-    CartaoContainer
+    // CartaoContainer
  } from './styled'
 
 
@@ -18,10 +18,10 @@ const Detalhe = ()=>{
     const navigate = useNavigate()
     const { states, requests } = useContext(Context)
     const servico = states.job
-    const user = states.user
-    const [image, setImage] = useState(null)
-    const [images, setImages] = useState([])
-    const [match, setMatch] = useState(false)
+    // const user = states.user
+    // const [image, setImage] = useState(null)
+    // const [images, setImages] = useState([])
+    // const [match, setMatch] = useState(false)
     const message = `Olá, vi seu serviço anunciado no aplicativo Loja de Serviços e gostaria de contratá-lo`
 
    
@@ -47,7 +47,7 @@ const Detalhe = ()=>{
 
         requests.getProfile()
 
-        user.id === servico.provider ? setMatch(true) : setMatch(false)
+        // user.id === servico.provider ? setMatch(true) : setMatch(false)
 
     }, [])
 
@@ -84,13 +84,11 @@ const Detalhe = ()=>{
     
     return(
         <>
-        <Head>
-            <IoIosArrowBack onClick={()=> navigate(-1)}
-                style={{cursor:'pointer'}}/>
-            {servico.title}
-            <IoAddCircleOutline onClick={()=> navigate('/cadastro')} 
-                style={{cursor:'pointer', marginRight:5}}/>
-        </Head>
+        <DefaultHeader
+            leftIcon={<IoIosArrowBack onClick={()=> navigate(-1)} style={{cursor:'pointer'}}/>}
+            title={servico.title}
+            rightIcon={<IoAddCircleOutline onClick={()=> navigate('/cadastro')} style={{cursor:'pointer', marginRight:5}}/>}
+        />
         <Container>
             <Cartao>
                 <Nome>{servico.title}</Nome>
