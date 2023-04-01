@@ -3,13 +3,13 @@ import Context from '../../global/Context'
 import axios from 'axios'
 import { BASE_URL } from "../../constants/urls"
 import { useNavigate } from 'react-router-dom'
+import DefaultHeader from '../../components/Header'
 import { AiOutlineLogout } from 'react-icons/ai'
 import { BsCardList } from 'react-icons/bs'
 import { MdDelete } from 'react-icons/md'
 import { BsSearch } from 'react-icons/bs'
 import { 
     Container,
-    Head,
     Cartao,
     Search
  } from './styled'
@@ -96,13 +96,11 @@ const Perfil = ()=>{
     
     return(
         <>
-        <Head>
-            <BsCardList onClick={()=> navigate('/lista')}
-                    style={{cursor:'pointer'}}/>
-            Perfil
-            <AiOutlineLogout onClick={logout} 
-                style={{cursor:'pointer', marginRight:5}}/>
-        </Head>
+        <DefaultHeader
+            leftIcon={<BsCardList onClick={()=> navigate('/lista')} style={{cursor:'pointer'}}/>}
+            title='Perfil'
+            rightIcon={<AiOutlineLogout onClick={logout} style={{cursor:'pointer', marginRight:5}}/>}
+        />
         <Container>
            <div style={{textAlign:'start', marginLeft:20, marginTop:30}}>
                 <b>Nome: </b>{user.name}<br/>

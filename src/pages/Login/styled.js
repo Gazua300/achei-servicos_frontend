@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Head = styled.div`
-  background-image: linear-gradient(#151626, lightblue);  
+  background-color: #151626;  
   font-size: 2rem;
   text-align: center;
   padding: 10px;
@@ -16,13 +16,15 @@ export const Head = styled.div`
   }
 `
 export const Container = styled.div`
+    background-color: rgba(0, 0, 0, 0.8);
+    min-height: 100vh;
     text-align: center;
     
     form{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 10vh;
+        padding-top: 10vh;
     }
 
     fieldset{

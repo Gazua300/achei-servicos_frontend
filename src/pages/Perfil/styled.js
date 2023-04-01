@@ -1,22 +1,9 @@
 import styled from 'styled-components'
 
 
-export const Head = styled.div`
-  background-image: linear-gradient(#151626, lightblue);  
-  font-size: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-
-  @media(max-width: 600px){
-    font-size: 20px;
-    button {
-      padding: 7px;
-    }
-  }
-`
 export const Container = styled.div`
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
   text-align: center;
   padding-top: 5vh;
 
@@ -29,12 +16,12 @@ export const Container = styled.div`
   .search-icon{
     position: absolute;
     top: 40%;
-    left: 39.5%;
+    left: 37%;
     color: rgba(255, 255, 255, 0.5)
   }
 `
 export const Search = styled.input`
-  width: 200px;
+  width: 250px;
   height: 30px;
   background: transparent;
   color: whitesmoke;

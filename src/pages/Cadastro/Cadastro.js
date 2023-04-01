@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { BsCardList, BsFillPersonFill } from 'react-icons/bs'
-import { Container, BtnContainer, BtnCadastrar, Head } from './styled'
+import DefaultHeader from '../../components/Header'
+import { Container, BtnContainer, BtnCadastrar } from './styled'
 
 
 
@@ -66,15 +67,11 @@ const Cadastro = ()=>{
     
     return(
         <>
-        <Head>
-            <BsCardList onClick={()=> navigate('/lista')}
-                style={{cursor:'pointer'}}/>
-            Cadastrar Serviço
-            <BsFillPersonFill onClick={()=> navigate('/perfil')}
-                style={{cursor:'pointer'}}/>
-        </Head>
+        <DefaultHeader
+            leftIcon={<BsCardList onClick={()=> navigate('/lista')} style={{cursor:'pointer'}}/>}
+            title='Cadastrar Serviço'
+            rightIcon={<BsFillPersonFill onClick={()=> navigate('/perfil')} style={{cursor:'pointer'}}/>}/>
         <Container>
-            <h2>Preencha o formulário com os dados do serviço</h2>
             <form onSubmit={cadastrar}>
                 <input type='text' name='titulo' value={form.titulo} onChange={onChange}
                     placeholder='Nome do serviço' required/>

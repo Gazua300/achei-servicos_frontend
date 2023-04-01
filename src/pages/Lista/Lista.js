@@ -13,6 +13,7 @@ import {
     CartaoContainer,
  } from "./styled"
 
+ 
 
 const Lista = ()=>{
     const navigate = useNavigate()
