@@ -76,7 +76,7 @@ const Lista = ()=>{
                             {servico.phone}<br/><br/>
                             {servico.period}
                         </div>
-                        <BtnCartao onClick={()=> requests.registForNotification()}>
+                        <BtnCartao onClick={()=> requests.getJobById()}>
                             Entrar em contato
                         </BtnCartao>
                     </Cartao>
