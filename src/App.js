@@ -6,10 +6,7 @@ import Router from "./routes/Router"
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background-image: url(https://lh3.googleusercontent.com/0FXgVBEwauQiEEDm6IsoKk_hI7dkOxUQ3RCh5jqq3GA_48IiXHa98kGnYx9yFfF_alzQqeusy_vYvrRxkm9NfjtZi4Y5DDMZ4ebTSUc);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
     margin: 0;
     padding: 0;
     width: 100vw;

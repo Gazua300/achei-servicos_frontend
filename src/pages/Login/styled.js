@@ -16,8 +16,6 @@ export const Head = styled.div`
   }
 `
 export const Container = styled.div`
-    background-color: rgba(0, 0, 0, 0.8);
-    min-height: 100vh;
     text-align: center;
     
     form{
