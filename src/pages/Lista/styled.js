@@ -2,9 +2,8 @@ import styled from 'styled-components'
 
 
 
+
 export const Container = styled.div`
-    background-color: rgba(0, 0, 0, 0.8);
-    min-height: 100vh;
     text-align: center;
     padding-top: 3vh;
     margin: 0;

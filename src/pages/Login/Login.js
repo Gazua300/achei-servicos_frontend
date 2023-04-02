@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import Context from '../../global/Context'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
@@ -7,6 +8,7 @@ import { Container, BtnContainer, BtnCadastrar, Head } from './styled'
 
 
 const Login = ()=>{
+    const { requests } = useContext(Context)
     const navigate = useNavigate()
     const [form, setForm] = useState({
         email:'',
@@ -22,14 +24,12 @@ const Login = ()=>{
         }
     }, [])
 
-
-
+    
     const onChange = (e)=>{
         const { name, value } = e.target
         setForm({...form, [name]:value})
     }
 
-    
 
     const login = (e)=>{
         e.preventDefault()
@@ -45,6 +45,9 @@ const Login = ()=>{
                 email:'',
                 password:''
             })
+
+            window.Notification.requestPermission()
+
         }).catch(e=>{
             alert(e.response.data)
         })
@@ -74,8 +77,10 @@ const Login = ()=>{
                     <input type='password' name='password' value={form.password} onChange={onChange}
                         placeholder='Sua senha' required/>
                     <BtnContainer>
-                        <BtnCadastrar type='button' onClick={limpar} value='Limpar'/>
-                        <BtnCadastrar type='submit' value='Entrar' />
+                        <BtnCadastrar style={{backgroundColor:'#151626'}}
+                            type='button' onClick={limpar} value='Limpar'/>
+                        <BtnCadastrar style={{backgroundColor:'#151626'}}
+                            type='submit' value='Entrar' />
                     </BtnContainer>
                 </fieldset>
             </form>

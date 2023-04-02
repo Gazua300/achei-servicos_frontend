@@ -27,8 +27,8 @@ const Lista = ()=>{
         if(!localStorage.getItem('id')){
             navigate('/')
         }
-
         requests.getAllJobs()
+        
     }, [])
     
 
@@ -69,15 +69,14 @@ const Lista = ()=>{
             <CartaoContainer>
             {filtro && filtro.map(servico=>{
                 return(
-                    <Cartao key={servico.id}
-                        onClick={()=> getJobById(servico)}>
+                    <Cartao key={servico.id}>
                         <Nome>{servico.title}</Nome>
                         <div className="card-content">
                             {servico.description}<br/><br/>
                             {servico.phone}<br/><br/>
                             {servico.period}
                         </div>
-                        <BtnCartao onClick={()=> getJobById(servico)}>
+                        <BtnCartao onClick={()=> requests.registForNotification()}>
                             Entrar em contato
                         </BtnCartao>
                     </Cartao>
