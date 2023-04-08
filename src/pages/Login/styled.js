@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Head = styled.div`
-  background-color: #151626;  
+  background-color: blue;  
   font-size: 2rem;
   text-align: center;
   padding: 10px;

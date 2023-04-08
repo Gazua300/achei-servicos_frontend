@@ -5,7 +5,7 @@ import Context from '../../global/Context'
 import DefaultHeader from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 import { IoAddCircleOutline } from 'react-icons/io5'
-import { IoIosArrowBack } from 'react-icons/io'
+import { IoIosArrowBack, IoLogoWhatsapp } from 'react-icons/io'
 import { 
     Container,
     Cartao,
@@ -13,6 +13,9 @@ import {
     // CartaoContainer
  } from './styled'
 
+
+
+ 
 
 const Detalhe = ()=>{
     const navigate = useNavigate()
@@ -98,7 +101,11 @@ const Detalhe = ()=>{
                     {servico.period}
                 </div>
                 <a href={`https://api.whatsapp.com/send?phone=55${servico.phone}&text=${message}`} target='_blank'>
-                    Mensagem
+                    <IoLogoWhatsapp style={{
+                        color:'#25D366',
+                        cursor:'pointer',
+                        fontSize:'2rem',
+                    }}/>
                 </a>
             </Cartao><br/>
             {/* {match ? (

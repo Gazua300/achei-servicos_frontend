@@ -48,15 +48,6 @@ export const Cartao = styled.div`
         margin-bottom: 20px;
     }
 
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-        background-color: #151626;
-        padding: 7px;
-        border-radius: 20px;
-        box-shadow: 2px 2px 4px black;
-    }
-
     input[type='file']{
       text-decoration: none;
         color: whitesmoke;
