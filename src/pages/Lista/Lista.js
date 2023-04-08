@@ -76,7 +76,7 @@ const Lista = ()=>{
                             {servico.phone}<br/><br/>
                             {servico.period}
                         </div>
-                        <BtnCartao onClick={()=> getJobById()}>
+                        <BtnCartao onClick={()=> getJobById(servico)}>
                             Entrar em contato
                         </BtnCartao>
                     </Cartao>
