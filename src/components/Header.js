@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 
 const Head = styled.div`
-  background-color: #151626;  
+  background-color: blue;  
   font-size: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  box-shadow: 2px 2px 4px #151626;
+  box-shadow: 2px 2px 4px black;
 
   @media(max-width: 600px){
     font-size: 20px;

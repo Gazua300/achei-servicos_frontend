@@ -9,7 +9,7 @@ export const Container = styled.div`
     margin: 0;
 
     button {
-        background-color: #151626;
+        background-color: blue;
         color: whitesmoke;
         padding: 7px;
         border-radius: 20px;
@@ -84,8 +84,11 @@ export const Cartao = styled.div`
     border-radius: 10px;
     cursor: pointer;
     &:hover{
-    transform: scale(1.1);
-    transition: 1s;
+        transform: scale(1.1);
+        color: goldenrod;
+        border: 3px dashed goldenrod;
+        box-shadow: 2px 2px 4px goldenrod;
+        transition: 1s;
     }
 
     .card-content {
@@ -105,4 +108,9 @@ export const BtnCartao = styled.button`
     background-color: #151626;
     color: whitesmoke;
     cursor: pointer;
+
+    &:hover{
+        background-color: goldenrod;
+        color: black;
+    }
 `
