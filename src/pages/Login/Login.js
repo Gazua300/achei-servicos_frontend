@@ -11,8 +11,8 @@ const Login = ()=>{
     const { requests } = useContext(Context)
     const navigate = useNavigate()
     const [form, setForm] = useState({
-        email:'',
-        password:''
+        email:'visitante@email.com',
+        password:'123456'
     })
 
 
