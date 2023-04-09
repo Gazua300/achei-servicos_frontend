@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 
 export const Head = styled.div`
-  background-color: blue;  
+  background-color: blue;
+  box-shadow: 2px 2px 4px black;  
   font-size: 2rem;
   text-align: center;
   padding: 10px;
