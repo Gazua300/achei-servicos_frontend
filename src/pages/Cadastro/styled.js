@@ -11,6 +11,28 @@ export const Container = styled.div`
         padding-top: 10vh;
     }
 
+    fieldset{
+        border: 1px solid;
+        width: 30vw;
+        box-shadow: 2px 2px 4px;
+        border-radius: 10px;
+
+        @media(max-width: 600px){
+            width: 80vw;
+        }
+    }
+
+    input[type='button']{
+        width: 100px;
+    }
+
+    button{
+        border-radius: 20px;
+        height: 30px;
+        background-color: transparent;
+        border-color: whitesmoke;
+    }
+
     input{
     	width: 250px;
     	height: 30px;
@@ -50,22 +72,12 @@ export const Container = styled.div`
         }
     }
 `
-export const BtnCadastrar = styled.button`
-    margin: 8px;
-    height: 30px;
-    width: 120px;
-    border-radius: 30px;
-    background-color: blue;
-    color: whitesmoke;
-    cursor: pointer;
-    @media(max-width: 600px){
-        width: 30%;
-    }
-`
 export const BtnContainer = styled.div`
+    margin: auto;
 	display: flex;
-    flex-direction: row;
 	align-items: center;
+    justify-content: space-between;
+    width: 18vw;
     margin-top: 10px;
     @media(max-width: 600px){
         width: 80%;

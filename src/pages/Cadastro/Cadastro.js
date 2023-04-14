@@ -5,7 +5,7 @@ import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { BsCardList, BsFillPersonFill } from 'react-icons/bs'
 import DefaultHeader from '../../components/Header'
-import { Container, BtnContainer, BtnCadastrar } from './styled'
+import { Container, BtnContainer } from './styled'
 
 
 
@@ -73,18 +73,20 @@ const Cadastro = ()=>{
             rightIcon={<BsFillPersonFill onClick={()=> navigate('/perfil')} style={{cursor:'pointer'}}/>}/>
         <Container>
             <form onSubmit={cadastrar}>
-                <input type='text' name='titulo' value={form.titulo} onChange={onChange}
-                    placeholder='Nome do serviço' required/>
-                <textarea name='descricao' value={form.descricao} onChange={onChange}
-                    placeholder='Descricao' required/>
-                <input type='tel' name='phone' value={form.phone} onChange={onChange}
-                    placeholder='DDD e telefone' required/>
-                <input type='text' name='period' value={form.period} onChange={onChange}
-                    placeholder='Período de atendimento' required/>
-                <BtnContainer>
-                    <BtnCadastrar>Cadastrar</BtnCadastrar>
-                    <BtnCadastrar onClick={()=> navigate('/')}>Ir para lista</BtnCadastrar>
-                </BtnContainer>
+                <fieldset>
+                    <input type='text' name='titulo' value={form.titulo} onChange={onChange}
+                        placeholder='Nome do serviço' required/>
+                    <textarea name='descricao' value={form.descricao} onChange={onChange}
+                        placeholder='Descricao' required/>
+                    <input type='tel' name='phone' value={form.phone} onChange={onChange}
+                        placeholder='DDD e telefone' required/>
+                    <input type='text' name='period' value={form.period} onChange={onChange}
+                        placeholder='Período de atendimento' required/>
+                    <BtnContainer>
+                        <button className='btn btn-primary'>Cadastrar</button>
+                        <input type='button' className='btn btn-primary' onClick={()=> navigate('/')} value='Lista'/>
+                    </BtnContainer>
+                </fieldset>
             </form>
         </Container>
         </>

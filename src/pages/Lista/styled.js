@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 
 
@@ -39,14 +39,7 @@ export const InputContainer = styled.div`
         font-size: 1rem;
         border-radius: 20px;
         margin: 10px;
-        padding-left: 40px;
-    }
-
-    .search-icon{
-        position: absolute;
-        left: 7.5%;
-        top: 20.5px;
-        color: rgba(255, 255, 255, 0.5)
+        padding-left: 15px;
     }
 
     select{
@@ -75,6 +68,19 @@ export const CartaoContainer = styled.div`
         flex-direction: column;
     }
 `
+const pulse = keyframes`
+    0%{
+        border-color: goldenrod;
+    }
+
+    50%{
+        border-color: gold;
+    }
+
+    100%{
+        border-color: whitesmoke;
+    }
+`
 export const Cartao = styled.div`
     color: whitesmoke;
     border: 1px solid whitesmoke;
@@ -86,14 +92,20 @@ export const Cartao = styled.div`
     &:hover{
         transform: scale(1.1);
         color: goldenrod;
-        border: 3px dashed goldenrod;
+        border: 1px solid goldenrod;
         box-shadow: 2px 2px 4px goldenrod;
         transition: 1s;
+        animation: ${pulse} 1.5s infinite;
     }
 
     .card-content {
         text-align: left;
         margin-bottom: 20px;
+    }
+
+    button:hover{
+        background-color: goldenrod;
+        color: black;
     }
 `
 export const Nome = styled.div`
@@ -101,16 +113,4 @@ export const Nome = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
-`
-export const BtnCartao = styled.button`
-    border-radius: 20px;
-    padding: 7px;
-    background-color: #151626;
-    color: whitesmoke;
-    cursor: pointer;
-
-    &:hover{
-        background-color: goldenrod;
-        color: black;
-    }
 `

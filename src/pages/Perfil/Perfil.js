@@ -7,12 +7,13 @@ import DefaultHeader from '../../components/Header'
 import { AiOutlineLogout } from 'react-icons/ai'
 import { BsCardList } from 'react-icons/bs'
 import { MdDelete } from 'react-icons/md'
-import { BsSearch } from 'react-icons/bs'
 import { 
     Container,
     Cartao,
     Search
  } from './styled'
+
+
 
 
 const Perfil = ()=>{
@@ -106,16 +107,16 @@ const Perfil = ()=>{
                 <b>Nome: </b>{user.name}<br/>
                 <b>Email: </b>{user.email}
            </div>
-           <div style={{marginTop:'10%', fontSize:25}}>
+           <div className='title'>
                 Serviços cadastrados
            </div>           
            <div style={{border:'1px solid', margin:20}}/>
            <div style={{position:'relative'}}>
-                <Search placeholder='Título do serviço' className='input-search'
+                <Search placeholder='Título do serviço                  🔎' 
+                    className='input-search'
                     type='text'
                     value={titulo}
                     onChange={(e)=> setTitulo(e.target.value)}/>
-                <BsSearch className='search-icon'/>
            </div>
            <div style={{overflow:'auto'}} >
                 {filtro.length > 0 ? (
