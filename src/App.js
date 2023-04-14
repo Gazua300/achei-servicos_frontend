@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom"
 import { createGlobalStyle } from "styled-components"
 import { GlobalState } from "./global/Context"
 import Router from "./routes/Router"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const GlobalStyle = createGlobalStyle`

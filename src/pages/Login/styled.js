@@ -18,7 +18,7 @@ export const Head = styled.div`
 `
 export const Container = styled.div`
     text-align: center;
-    
+
     form{
         display: flex;
         flex-direction: column;
@@ -27,13 +27,18 @@ export const Container = styled.div`
     }
 
     fieldset{
+        width: 30vw;
         padding: 10px;
         border-radius: 5px;
         box-shadow: 2px 2px 4px;
+
+        @media(max-width: 600px){
+            width: 80vw; 
+        }
     }
 
     input{
-    	height: 25px;
+    	height: 30px;
     	background: transparent;
     	color: whitesmoke;
     	font-size: 1rem;
@@ -61,23 +66,11 @@ export const BtnContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: space-around;
+    margin: auto;
     @media(max-width: 600px){
         width: 80%;
         flex-direction: row;
         justify-content: space-between;
-    }
-`
-export const BtnCadastrar = styled.input`
-    margin: 5px;
-    height: 30px;
-    width: 100px;
-    border-radius: 30px;
-    background-color: #151626;
-    color: whitesmoke;
-    cursor: pointer;
-    @media(max-width: 600px){
-        width: 30%;
     }
 `

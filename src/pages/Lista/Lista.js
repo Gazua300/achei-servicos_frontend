@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom"
 import Context from "../../global/Context"
 import axios from 'axios'
 import { BASE_URL } from "../../constants/urls"
-import { BsSearch } from 'react-icons/bs'
 import { 
     InputContainer,
     Cartao,
-    BtnCartao,
     Nome,
     Container,
     CartaoContainer,
@@ -60,11 +58,8 @@ const Lista = ()=>{
         <>
         <Container>
             <InputContainer>
-                <div style={{position:'relative'}}>
-                    <input type='text' onChange={handleTitle} value={title} 
-                        placeholder='Titulo do serviço'/>
-                    <BsSearch className="search-icon"/>                    
-                </div>                
+                <input type='text' onChange={handleTitle} value={title} 
+                    placeholder='Titulo do serviço                  🔎'/>                 
             </InputContainer>
             <CartaoContainer>
             {filtro && filtro.map(servico=>{
@@ -76,9 +71,10 @@ const Lista = ()=>{
                             {servico.phone}<br/><br/>
                             {servico.period}
                         </div>
-                        <BtnCartao onClick={()=> getJobById(servico)}>
+                        <button className="btn btn-primary"
+                            onClick={()=> getJobById(servico)}>
                             Entrar em contato
-                        </BtnCartao>
+                        </button>
                     </Cartao>
                 )
             })}

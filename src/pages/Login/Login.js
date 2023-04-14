@@ -1,14 +1,12 @@
-import { useEffect, useState, useContext } from 'react'
-import Context from '../../global/Context'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
-import { Container, BtnContainer, BtnCadastrar, Head } from './styled'
+import { Container, BtnContainer, Head } from './styled'
 
 
 
 const Login = ()=>{
-    const { requests } = useContext(Context)
     const navigate = useNavigate()
     const [form, setForm] = useState({
         email:'visitante@email.com',
@@ -71,15 +69,16 @@ const Login = ()=>{
         <Container>
             <form onSubmit={login}>
                 <fieldset>
-                    <legend>Entre com email e senha</legend>
-                    <input type='text' name='email' value={form.email} onChange={onChange}
+                    <input 
+                        type='text' name='email' value={form.email} onChange={onChange}
                         placeholder='nome@email.com' required/><br/>
-                    <input type='password' name='password' value={form.password} onChange={onChange}
+                    <input 
+                        type='password' name='password' value={form.password} onChange={onChange}
                         placeholder='Sua senha' required/>
                     <BtnContainer>
-                        <BtnCadastrar style={{backgroundColor:'#151626'}}
+                        <input className='btn btn-primary'
                             type='button' onClick={limpar} value='Limpar'/>
-                        <BtnCadastrar style={{backgroundColor:'#151626'}}
+                        <input className='btn btn-primary'
                             type='submit' value='Entrar' />
                     </BtnContainer>
                 </fieldset>
