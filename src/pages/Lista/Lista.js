@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Context from "../../global/Context"
 import axios from 'axios'
 import { BASE_URL } from "../../constants/urls"
+import { convertPhone } from "../../components/ConvertPhone"
 import { 
     InputContainer,
     Cartao,
@@ -46,7 +47,7 @@ const Lista = ()=>{
         }).catch(e=>{
           alert(e.response.data)
         })
-      }
+    }   
     
 
     const filtro = servicos && servicos.filter(item=>{
@@ -67,9 +68,9 @@ const Lista = ()=>{
                     <Cartao key={servico.id}>
                         <Nome>{servico.title}</Nome>
                         <div className="card-content">
-                            {servico.description}<br/><br/>
-                            {servico.phone}<br/><br/>
-                            {servico.period}
+                            <b>Descrição: </b>{servico.description}<br/><br/>
+                            <b>Contato: </b>{convertPhone(servico.phone)}<br/><br/>
+                            <b>Horário de atendimento: </b>{servico.period}
                         </div>
                         <button className="btn btn-primary"
                             onClick={()=> getJobById(servico)}>

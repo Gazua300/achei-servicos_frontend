@@ -11,7 +11,7 @@ export const GlobalState = (props)=>{
     const [user, setUser] = useState({})
     const [subscription, setSubscription] = useState(null)
     
-    console.log(subscription)
+    
 
 
     const registForNotification = ()=>{

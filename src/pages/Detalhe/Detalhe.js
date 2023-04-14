@@ -6,6 +6,7 @@ import DefaultHeader from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 import { IoAddCircleOutline } from 'react-icons/io5'
 import { IoIosArrowBack, IoLogoWhatsapp } from 'react-icons/io'
+import { convertPhone } from '../../components/ConvertPhone'
 import { 
     Container,
     Cartao,
@@ -96,9 +97,9 @@ const Detalhe = ()=>{
             <Cartao>
                 <Nome>{servico.title}</Nome>
                 <div className="card-content">
-                    {servico.description}<br/><br/>
-                    {servico.phone}<br/><br/>
-                    {servico.period}
+                    <b>Descrição: </b>{servico.description}<br/><br/>
+                    <b>Contato: </b>{convertPhone(servico.phone)}<br/><br/>
+                    <b>Horário de atendimento: </b>{servico.period}
                 </div>
                 <a href={`https://api.whatsapp.com/send?phone=55${servico.phone}&text=${message}`} target='_blank'>
                     <IoLogoWhatsapp style={{
